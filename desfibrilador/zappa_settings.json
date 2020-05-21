@@ -1,0 +1,10 @@
+{
+    "dev": {
+        "aws_region": "eu-west-3",
+        "django_settings": "desfibrilador.settings",
+        "profile_name": "default",
+        "project_name": "desfibrilador",
+        "runtime": "python3.6",
+        "s3_bucket": "zappa-cubo"
+    }
+}

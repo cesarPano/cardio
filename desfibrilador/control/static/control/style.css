@@ -1,0 +1,13 @@
+h1 { text-align: center; }
+h2 { text-align: center; }
+h3 { text-align: center; }
+h4 { text-align: center; }
+h5 { text-align: center; }
+li a { color: purple; }
+body {	background: white url("images/logo_corazon.png");
+	background-size: cover; 
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 100%;
+	}

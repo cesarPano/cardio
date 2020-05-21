@@ -1,0 +1,26 @@
+<h1>Desfibrilador número: {{ desfibrilador.id }}</h1>
+<h2>
+
+<ul>
+	<li>{{ desfibrilador.tipo }}</li>
+	<li>{{ desfibrilador.localizacion }}</li>
+	<li>{{ desfibrilador.responsable }}</li>
+	<li>{{ desfibrilador.transmision_set.count }} transmisiones</li>
+	<li>{{ desfibrilador.revision_set.count }} revisiones</li>
+	<img src=/media/{{ desfibrilador.imagen }} height='200'>
+</ul>
+
+<select name="transmision" id="transmision" style="margin-left: 50px; WIDTH: 300px; HEIGHT: 50px">
+        <option value="0">Ver transmisiones:</option>
+        {% for transmision in desfibrilador.transmision_set.all %}
+                echo '<option value="{{ transmision.id }}">{{ transmision.trans_date }} -> {{ transmision.trans_text }}</option>';
+        {% endfor %}
+</select>
+
+<select name="revision" id="revision" style="margin-left: 50px; WIDTH: 300px; HEIGHT: 50px">
+	<option value="0">Ver revisiones:</option>
+	{% for revision in desfibrilador.revision_set.all %}
+		echo '<option value="{{ revision.id }}">{{ revision.tecnico }} -> {{ revision.rev_tipo }} -> {{revision.rev_date}}</option>';
+	{% endfor %}
+</select>
+</h2>

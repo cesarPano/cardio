@@ -1,0 +1,27 @@
+{% if user.is_authenticated %}
+  Hola {{ user.username }}!
+  <p><a href="{% url 'logout' %}">logout</a></p>
+{% else %}
+  <p>You are not logged in</p>
+  <a href="{% url 'login' %}">logueate para tener acceso</a>
+{% endif %}
+
+{% load static %}
+	<link rel="stylesheet" type="text/css" href="{% static 'control/style.css' %}">	
+
+
+{% if user.is_staff %}
+	{% if latest_desfibrilador_list %}
+		<ul>
+		{% for desfibrilador in latest_desfibrilador_list %}
+			<li>
+				<a href="{% url 'detail' desfibrilador.id %}">
+					<h2>{{ desfibrilador.localizacion }}</h2>
+				</a>
+			</li>
+		{% endfor %}
+		</ul>
+	{% else %}
+		<p>No hay desfibriladores.</p>
+	{% endif %}
+{% endif %}
